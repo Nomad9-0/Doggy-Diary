@@ -1,19 +1,40 @@
-<div class="container">
-  <div class="row">
-    <div class="col-8 offset-2">
-      <div class="card mt-4">
-        <div class="card-body">
-          <h5 class="card-title">Example</h5>
-          <p>
-            <strong>ID</strong>: {{example.id}}</p>
-          <p>
-          <p>
-            <strong>Text</strong>: {{example.text}}</p>
-          <p>
-            <strong>Description:</strong> {{example.description}}</p>
-            <a href="/">← Back To Home</a>
-        </div>
-      </div>
+<!-- Info Page -->
+<div class="container text-center main">
+  <!-- Header -->
+  <div class="row" id="dog-info">
+    <div class="col jumbotron header">
+      <h1 id="dog-name">{{example.id}}</h1>
+      <p id="dog-horoscope">Dog Horoscope</p>
     </div>
   </div>
+
+  <!-- Chart -->
+  <div class="row" id="behavior-chart">
+      <div class="col card mb-4">
+          <h1 class="card-header">Behavior Tracker</h1>
+          <p id="chart card-body">Dog Chart Here</p>
+      </div>
+  </div>
+
+  <!-- provide a alert or pop up if behavioral pattern is detected -->
+  <!-- <div class="row" id="alert">
+      <div class="col">
+          <h1>Alery</h1>
+          <p id="alertt">alert message</p>
+      </div>
+  </div> -->
+
+  <!-- Breed Info -->
+  <div class="row" id="dog-facts">
+      <div class="col card mb-4">
+          <h1 class="card-header">Breed Characteristics</h1>
+          <p id="breed-char card-body">Breed fun facts {{example.facts}}</p>
+      </div>
+      <div class="col card mb-4">
+          <h1 class="card-header">Breed Health Issues</h1>
+          <p id="breed-health card-body">Health info {{example.health}}</p>
+          <a href="#">links for more info on health issues</a>
+      </div>
+  </div>
+   
 </div>
