@@ -10,6 +10,14 @@ module.exports = function(app) {
       });
     });
   });
+ 
+  app.get("/diary", function(req, res) {
+    db.Diary.findAll({}).then(function(dbDiaries) {
+      res.render("diary", {
+        diaries: dbDiaries
+      });
+    });
+  });
 
   // Load dog page and pass in an dog by id
   app.get("/dog/:id", function(req, res) {

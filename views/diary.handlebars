@@ -31,3 +31,12 @@ Give me info about your dog today
   <textarea class="form-control" id="dog-message" aria-describedby="dog-message" placeholder="Enter Message"></textarea>
 </div>
 </form>
+<h3>Dogs:</h3>
+<ul id="dog-list" class="list-group">
+  {{#each diaries}}
+  <li data-id="{{this.id}}" class="list-group-item">
+    <a href="diary/{{this.id}}">{{this.dogName}}</a>
+    <button class="btn btn-danger float-right delete">ｘ</button>
+  </li>
+  {{/each}}
+</ul>
