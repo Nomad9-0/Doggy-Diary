@@ -30,9 +30,11 @@ Give me info about your dog today
   <label for="dog-message">In your own words, tell me how was your dog today.</label>
   <textarea class="form-control" id="dog-message" aria-describedby="dog-message" placeholder="Enter Message"></textarea>
 </div>
+<button id="submit-diary" class="btn btn-primary float-right">Submit</button>
+
 </form>
 <h3>Dogs:</h3>
-<ul id="dog-list" class="list-group">
+<ul id="diary-list" class="list-group">
   {{#each diaries}}
   <li data-id="{{this.id}}" class="list-group-item">
     <a href="diary/{{this.id}}">{{this.dogName}}</a>

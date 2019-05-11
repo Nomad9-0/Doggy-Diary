@@ -10,7 +10,7 @@ module.exports = function(app) {
       });
     });
   });
- 
+
   app.get("/diary", function(req, res) {
     db.Diary.findAll({}).then(function(dbDiaries) {
       res.render("diary", {
@@ -24,6 +24,14 @@ module.exports = function(app) {
     db.Dog.findOne({ where: { id: req.params.id } }).then(function(dbDog) {
       res.render("dog", {
         dog: dbDog
+      });
+    });
+  });
+
+  app.get("/diary/:id", function(req, res) {
+    db.Diary.findOne({ where: { id: req.params.id } }).then(function(dbDiary) {
+      res.render("diary", {
+        dog: dbDiary
       });
     });
   });
