@@ -34,6 +34,11 @@ module.exports = function(sequelize, DataTypes) {
       validate: {
         len: [1]
       }
+    },
+    message: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: "no entry"
     }
   });
   return Diary;
