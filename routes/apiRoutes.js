@@ -21,4 +21,22 @@ module.exports = function(app) {
       res.json(dbDog);
     });
   });
+
+  app.get("/api/diaries", function(req, res) {
+    db.Diary.findAll({}).then(function(dbDiary) {
+      res.json(dbDiary);
+    });
+  });
+
+  app.post("/api/diaries", function(req, res) {
+    db.Diary.create(req.body).then(function(dbDiary) {
+      res.json(dbDiary);
+    });
+  });
+
+  app.delete("/api/diaries/:id", function(req, res) {
+    db.Diary.destroy({ where: { id: req.params.id } }).then(function(dbDiary) {
+      res.json(dbDiary);
+    });
+  });
 };

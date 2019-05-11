@@ -11,11 +11,27 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/diary", function(req, res) {
+    db.Diary.findAll({}).then(function(dbDiaries) {
+      res.render("diary", {
+        diaries: dbDiaries
+      });
+    });
+  });
+
   // Load dog page and pass in an dog by id
   app.get("/dog/:id", function(req, res) {
     db.Dog.findOne({ where: { id: req.params.id } }).then(function(dbDog) {
       res.render("dog", {
         dog: dbDog
+      });
+    });
+  });
+
+  app.get("/diary/:id", function(req, res) {
+    db.Diary.findOne({ where: { id: req.params.id } }).then(function(dbDiary) {
+      res.render("", {
+        diary: dbDiary
       });
     });
   });
