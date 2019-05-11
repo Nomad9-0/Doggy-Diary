@@ -54,6 +54,12 @@ var API = {
       url: "api/diaries",
       type: "GET"
     });
+  },
+  deleteDiary: function(id) {
+    return $.ajax({
+      url: "api/diaries/" + id,
+      type: "DELETE"
+    });
   }
 };
 
@@ -167,6 +173,8 @@ var diaryFormSubmit = function(event) {
     affection: $dogAffection.val().trim(),
     message: $dogMessage.val().trim()
   };
+
+  console.log(diary);
 
   if (
     !(

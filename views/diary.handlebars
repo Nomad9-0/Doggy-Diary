@@ -1,39 +1,41 @@
-Give me info about your dog today
+<div id="home">
 
-<form class="clearfix mb-4" action="POST">
+  Give me info about your dog today
 
-<div class="form-group">
-  <label for="dog-name">Which dog?</label>
-  <input type="text" id="dog-name" class="form-control" aria-describedby="dog-name" placeholder="Enter Dog Name">
-</div>
+  <form class="clearfix mb-4" action="POST">
 
-<div class="form-group">
-  <label for="dog-happiness">How happy was your dog today?</label>
-  <input type="range" id="dog-happiness" class="form-control" aria-describedby="dog-happiness" min="1" max="5">
-</div>
+    <div class="form-group">
+      <label for="dog-name">Which dog?</label>
+      <input type="text" id="dog-name" class="form-control" aria-describedby="dog-name" placeholder="Enter Dog Name">
+    </div>
 
-<div class="form-group">
-  <label for="dog-energy">How energetic was your dog today?</label>
-  <input type="range" id="dog-energy" class="form-control" aria-describedby="dog-energy" min="1" max="5">
-</div>
+    <div class="form-group">
+      <label for="dog-happiness">How happy was your dog today?</label>
+      <input type="text" id="dog-happiness" class="form-control" aria-describedby="dog-happiness">
+    </div>
 
-<div class="form-group">
-  <label for="dog-appetite">How's your dog's appetite today?</label>
-  <input type="range" id="dog-appetite" class="form-control" aria-describedby="dog-appetite" min="1" max="5">
-</div>
+    <div class="form-group">
+      <label for="dog-energy">How energetic was your dog today?</label>
+      <input type="text" id="dog-energy" class="form-control" aria-describedby="dog-energy">
+    </div>
 
-<div class="form-group">
-  <label for="dog-affection">How affectionate was your dog today?</label>
-  <input type="range" id="dog-affection" class="form-control" aria-describedby="dog-affection" min="1" max="5">
-</div>
-<div class="form-group">
-  <label for="dog-message">In your own words, tell me how was your dog today.</label>
-  <textarea class="form-control" id="dog-message" aria-describedby="dog-message" placeholder="Enter Message"></textarea>
-</div>
-<button id="submit-diary" class="btn btn-primary float-right">Submit</button>
+    <div class="form-group">
+      <label for="dog-appetite">How's your dog's appetite today?</label>
+      <input type="text" id="dog-appetite" class="form-control" aria-describedby="dog-appetite">
+    </div>
 
-</form>
-<h3>Dogs:</h3>
+    <div class="form-group">
+      <label for="dog-affection">How affectionate was your dog today?</label>
+      <input type="text" id="dog-affection" class="form-control" aria-describedby="dog-affection">
+    </div>
+    <div class="form-group">
+      <label for="dog-message">In your own words, tell me how was your dog today.</label>
+      <textarea class="form-control" id="dog-message" aria-describedby="dog-message" placeholder="Enter Message"></textarea>
+    </div>
+    <button id="submit-diary" class="btn btn-primary float-right">Submit</button>
+
+  </form>
+<h3>Diaries:</h3>
 <ul id="diary-list" class="list-group">
   {{#each diaries}}
   <li data-id="{{this.id}}" class="list-group-item">
@@ -42,3 +44,7 @@ Give me info about your dog today
   </li>
   {{/each}}
 </ul>
+</div>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>

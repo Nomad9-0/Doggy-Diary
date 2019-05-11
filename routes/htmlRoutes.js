@@ -30,8 +30,8 @@ module.exports = function(app) {
 
   app.get("/diary/:id", function(req, res) {
     db.Diary.findOne({ where: { id: req.params.id } }).then(function(dbDiary) {
-      res.render("diary", {
-        dog: dbDiary
+      res.render("", {
+        diary: dbDiary
       });
     });
   });
