@@ -1,9 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Sky23high",
     "database": "dog_tracker",
-
     "host": "localhost",
     "dialect": "mysql"
   },

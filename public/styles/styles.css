@@ -1,3 +1,131 @@
 .list-group-item {
   line-height: 2.5;
 }
+body {
+  background-image: url("images/background_rainbow_bones.jpg");
+  background-color: aqua;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.page-container {
+  margin: 30px;
+  border-style: ridge;
+  border-color: aqua;
+  padding: 50px;
+}
+
+.icon-container {
+  margin: 0 auto;
+  padding: auto;
+  background-color: aqua;
+}
+
+.bones-container {
+  display: flex;
+  align-items: center;
+  border-style: dotted;
+  border-color: navy;
+}
+
+.paw-container {
+  display: flex;
+  align-items: center;
+}
+
+
+#doghouse {
+  max-height: 500px;
+  max-width: 500px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#button_addnewpet {
+  background-image: url("Project-2/Images/bone_maroon.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+  border: none;
+  margin: 5px;
+  font-style: oblique;
+  color: white;
+  font-size: medium;
+  background-color: aqua;
+  display: block;
+}
+
+#button_horoscope {
+  background-image: url("Project-2/Images/bone_blue.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+  border: none;
+  margin: 5px;
+  font-style: oblique;
+  color: white;
+  font-size: medium;
+  background-color: aqua;
+
+  display: block;
+
+}
+
+#button_diary {
+  background-image: url("Project-2/Images/bone_pink.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  width: 200px;
+  height: 100px;
+  border: none;
+  margin: 5px;
+  font-style: oblique;
+  color: white;
+  font-size: medium;
+  background-color: aqua;
+
+  display: block;
+
+}
+
+
+#button_dog1 {
+  background-image: url("Project-2/Images/paw_blue.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  width: 270px;
+  height: 270px;
+  border: none;
+  font-style: oblique;
+  color: white;
+  font-size: medium;
+  background-color: aqua;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+
+
+}
+
+/* #button_dog2 {
+  background-image: url("Project-2/Images/paw_orange.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  width: 250px;
+  height: 270px;
+  border: none;
+  margin: 5px;
+  font-style: oblique;
+  color: white;
+  font-size: medium;
+
+} */
