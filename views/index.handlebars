@@ -4,22 +4,29 @@
       <div class="col-8 offset-2">
         <h1>{{msg}}</h1>
         <h2>Tell us about your dog!</h2>
+
+        {{!-- INDEX PAGE = CREATE NEW DOG PROFILE --}}
+
         <form class="clearfix mb-4" action="POST">
           <div class="form-group">
             <label for="dog-name">Your Dog</label>
-            <input type="text" id="dog-name" class="form-control" aria-describedby="dog-name" placeholder="Enter Dog Name">
+            <input type="text" id="dog-name" class="form-control" aria-describedby="dog-name"
+              placeholder="Enter Dog Name">
           </div>
           <div class="form-group">
             <label for="dog-birthdate">Dog Birthdate</label>
-            <textarea class="form-control" id="dog-birthdate" aria-describedby="dog-birthdate" placeholder="Enter Dog Birthdate"></textarea>
+            <textarea class="form-control" id="dog-birthdate" aria-describedby="dog-birthdate"
+              placeholder="Enter Dog Birthdate"></textarea>
           </div>
           <div class="form-group">
             <label for="dog-sex">Dog Sex</label>
-            <textarea class="form-control" id="dog-sex" aria-describedby="dog-sex" placeholder="Enter Dog Sex"></textarea>
+            <textarea class="form-control" id="dog-sex" aria-describedby="dog-sex"
+              placeholder="Enter Dog Sex"></textarea>
           </div>
           <div class="form-group">
             <label for="dog-breed">Dog Breed</label>
-            <textarea class="form-control" id="dog-breed" aria-describedby="dog-breed" placeholder="Enter Dog Breed"></textarea>
+            <textarea class="form-control" id="dog-breed" aria-describedby="dog-breed"
+              placeholder="Enter Dog Breed"></textarea>
           </div>
           <button id="submit-dog" class="btn btn-primary float-right">Submit</button>
         </form>
