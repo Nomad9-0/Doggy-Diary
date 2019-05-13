@@ -1,6 +1,7 @@
 .list-group-item {
   line-height: 2.5;
 }
+
 body {
   background-image: url("images/background_rainbow_bones.jpg");
   background-color: aqua;
@@ -17,29 +18,32 @@ body {
 
 .icon-container {
   margin: 0 auto;
-  padding: auto;
+  padding: 30px;
   background-color: aqua;
 }
 
 .bones-container {
-  display: flex;
-  align-items: center;
+  display: block;
   border-style: dotted;
   border-color: navy;
+  margin: 30px;
+  padding: 10px;
 }
 
 .paw-container {
   display: flex;
-  align-items: center;
+  float: right;
 }
 
 
 #doghouse {
   max-height: 500px;
   max-width: 500px;
-  display: block;
+  display: inline-flex;
   margin-left: auto;
   margin-right: auto;
+  float: left;
+
 }
 
 #button_addnewpet {
@@ -56,6 +60,7 @@ body {
   font-size: medium;
   background-color: aqua;
   display: block;
+  font-weight: bold;
 }
 
 #button_horoscope {
@@ -71,9 +76,8 @@ body {
   color: white;
   font-size: medium;
   background-color: aqua;
-
   display: block;
-
+  font-weight: bold;
 }
 
 #button_diary {
@@ -89,13 +93,11 @@ body {
   color: white;
   font-size: medium;
   background-color: aqua;
-
   display: block;
-
+  font-weight: bold;
 }
 
-
-#button_dog1 {
+#button_dog {
   background-image: url("Project-2/Images/paw_blue.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -107,25 +109,9 @@ body {
   color: white;
   font-size: medium;
   background-color: aqua;
-  display: block;
   margin-left: auto;
   margin-right: auto;
-  align-items: center;
-
-
+  font-weight: bold;
+  font-size: large;
+  float: right;
 }
-
-/* #button_dog2 {
-  background-image: url("Project-2/Images/paw_orange.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-  cursor: pointer;
-  width: 250px;
-  height: 270px;
-  border: none;
-  margin: 5px;
-  font-style: oblique;
-  color: white;
-  font-size: medium;
-
-} */
