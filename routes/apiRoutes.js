@@ -22,10 +22,20 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/diaries", function(req, res) {
-    db.Diary.findAll({}).then(function(dbDiary) {
-      res.json(dbDiary);
-    });
+  app.get("/api/diaries/:dog", function(req, res) {
+    if (req.params.dog) {
+      db.Diary.findAll({
+        where: {
+          dogName: req.params.dog
+        }
+      }).then(function(dbDiary) {
+        return res.json(dbDiary);
+      });
+    } else {
+      db.Diary.findAll({}).then(function(dbDiary) {
+        res.json(dbDiary);
+      });
+    }
   });
 
   app.post("/api/diaries", function(req, res) {
