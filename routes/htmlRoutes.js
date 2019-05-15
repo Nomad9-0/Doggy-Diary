@@ -19,6 +19,10 @@ module.exports = function(app) {
     });
   });
 
+  // app.get("/info", function(req, res) {
+  //   res.render("info");
+  // });
+
   /* app.get("/diary/:input", function(req, res) {
     db.Diary.findAll({ where: { dogName: req.params.input } }).then(function(
       dbDiaries
