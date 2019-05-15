@@ -1,2 +1,1 @@
-var Chart = require('chart.js');
-
+// var Chart = require('chart.js');
