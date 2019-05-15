@@ -4,21 +4,20 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Dog.findAll({}).then(function(dbDogs) {
-      res.render("index", {
-        msg: "Welcome!",
+      res.render("home", {
         dogs: dbDogs
       });
     });
   });
 
-  app.get("/diary", function(req, res) {
+  /*  app.get("/diary", function(req, res) {
     db.Diary.findAll({}).then(function(dbDiaries) {
-      res.render("diary", {
+      res.render("info", {
         diaries: dbDiaries
       });
     });
   });
-
+ */
   /* app.get("/diary/:input", function(req, res) {
     db.Diary.findAll({ where: { dogName: req.params.input } }).then(function(
       dbDiaries
@@ -32,7 +31,7 @@ module.exports = function(app) {
   // Load dog page and pass in an dog by id
   app.get("/dog/:id", function(req, res) {
     db.Dog.findOne({ where: { id: req.params.id } }).then(function(dbDog) {
-      res.render("dog", {
+      res.render("info", {
         dog: dbDog
       });
     });
