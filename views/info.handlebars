@@ -7,6 +7,7 @@
       <h1 id="dog-name">{{dog.dogName}}</h1>
       <p id="dog-birthday">{{dog.birthdate}}</p>
       <p id="dog-sex">{{dog.sex}}</p>
+      <a href="/">← Back To Home</a>
     </div>
   </div>
 
@@ -29,16 +30,28 @@
   <!-- Breed Info -->
   <div class="row" id="dog-facts">
       <div class="col card mb-4">
-          <h1 class="card-header">Breed Characteristics</h1>
-          <p id="breed-char card-body">Breed fun facts {{dog.breed}}</p>
-      </div>
+        <h1 class="card-header">Breed Characteristics</h1>
+        <p>Select a Breed</p>
+        <div id="breed-char card-body banner-message" class="breed_select">{{dog.breed}}
+        <select class="breed_select">
+            <option></option>
+        </select>
+        </div>
+        <div id="breed_data">
+        <p>Breed Data</p>
+        <table id="breed_data_table"></table>
+        </div>
+    </div>
+    
+
       <div class="col card mb-4">
-          <h1 class="card-header">Breed Health Issues</h1>
-          <p id="breed-health card-body">Health info {{example.health}}</p>
-          <a href="#">links for more info on health issues</a>
+        <h1 class="card-header">Breed Health Issues</h1>
+        <p id="breed-health card-body">Health info {{example.health}}</p>
+        <a href="#">links for more info on health issues</a>
       </div>
   </div>
    
 </div>
 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
