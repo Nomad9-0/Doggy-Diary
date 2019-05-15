@@ -1,8 +1,6 @@
 .list-group-item {
   line-height: 2.5;
-}
-
-body {
+}        body {
   background-image: url("images/background_rainbow_bones.jpg");
   background-color: aqua;
   background-repeat: no-repeat;
@@ -12,30 +10,26 @@ body {
 .page-container {
   margin: 30px;
   border-style: ridge;
-  border-color: aqua;
-  padding: 50px;
+  border: double aqua;
+  padding: 30px;
 }
 
 .icon-container {
   margin: 0 auto;
   padding: 30px;
   background-color: aqua;
-}
-
-.bones-container {
-  display: block;
-  border-style: dotted;
-  border-color: navy;
-  margin: 30px;
-  padding: 10px;
+  border: double navy;
 }
 
 .paw-container {
-  display: flex;
-  float: right;
+  display: inline-block;
+  border-style: dotted;
+  border-color: navy;
+  padding: 20px;
+
 }
 
-
+/* make doghouse into button that returns to homepage */
 #doghouse {
   max-height: 500px;
   max-width: 500px;
@@ -51,16 +45,17 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
-  width: 200px;
-  height: 100px;
+  width: 300px;
+  height: 150px;
   border: none;
-  margin: 5px;
+  margin: 0 auto;
   font-style: oblique;
   color: white;
   font-size: medium;
   background-color: aqua;
   display: block;
   font-weight: bold;
+  font-size: x-large;
 }
 
 #button_horoscope {
@@ -105,13 +100,146 @@ body {
   width: 270px;
   height: 270px;
   border: none;
+  background-color: aqua;
+  margin: 0 auto;
+  display: block;
   font-style: oblique;
   color: white;
   font-size: medium;
-  background-color: aqua;
-  margin-left: auto;
-  margin-right: auto;
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
+
+}
+
+/* #buttonText {
+  top: -85px;
+  left: 95px;
+  position: relative;
+  font-style: oblique;
+  color: white;
+  font-size: medium;
+  font-weight: bold;
+  font-size: x-large;
+
+} */
+
+/* Modal (background) */
+.modal1 {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding: 100px;
+  /* Location of the box */
+  right: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black w/ opacity */
+}
+
+.modal2 {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding: 100px;
+  /* Location of the box */
+  right: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-diary {
+  background-color: aqua;
+  color: black;
+  margin: 20px;
+  padding: 20px;
+  border: 3px solid #888;
+  background: aqua;
+  width: 260px;
+  position: fixed;
+  top: 10%;
+  left: 40%;
+}
+
+.modal-profile {
+  background-color: aqua;
+  color: black;
+  margin: 0 auto;
+  padding: 20px;
+  border: 3px solid #888;
+  background: aqua;
+  width: auto;
+  position: fixed;
+  top: 10%;
+  left: 30%;
+}
+
+/* The Close Button */
+.close1 {
+  color: darkgrey;
   float: right;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close2 {
+  color: darkgrey;
+  float: right;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+
+
+.close1:hover,
+.close1:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.close2:hover,
+.close2:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+hr {
+  display: block;
+  position: relative;
+  width: 95%;
+  border-color: black;
+}
+
+.label {
+  position: relative;
+  padding: 20px 111px 20px 111px;
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+
 }
