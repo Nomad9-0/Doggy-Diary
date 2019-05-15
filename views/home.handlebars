@@ -1,61 +1,180 @@
-<!DOCTYPE html>
-<html>
+{{!-- home.handlebars = HomePage for Doggy Diary --}}
 
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--WHOLE-PAGE CONTAINER-->
+<div class="page-container">
+    <!--button & icon container (to allow teal background to have opacity, need to have these in separate container on top of whole page container)-->
 
-    <title>Home Page</title>
-</head>
+    <div class="icon-container">
+        <div class="row">
+            <div class="col-md">
+                <img id="doghouse" src="Project-2/Images/doghouse.png" />
+            </div>
 
-<body>
-    {{{body}}}
-    {{!-- Does {body} tag stay????? --}}
+            <div class="col-md paw-container">
+                <!-- this is a "paw profile" button. Button displays dog's name. Click button to brings up a modal. Modal has bone buttons to view diary or create new diary entry.  Click the bone buttons to load new page. -->
+                <INPUT type="submit" id="button_dog" value="Diary">
+                <!-- <div id="buttonText">Fido's Diary</div></button> -->
 
-    <div class="page-container">
-        {{!-- button & icon container (to allow teal background to have opacity, need to have these in separate container on top of whole page container) --}}
+                <!--BUTTON: New Pet Profile-->
+                <INPUT type="submit" id="button_addnewpet" value="Add New Pet Profile"></button>
 
-        <div class="icon-container">
-            <div class="row">
-                <div class="col-sm">
-                    <img id="doghouse" src="Project-2/Images/doghouse.png" />
+                {{!-- Modal: populate new-pet form --}}
+                <div id="profileModal" class="modal2">
+                    <!-- Modal content -->
+                    <div class="modal-profile">
+                        <span class="close2">&times;</span>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-8 offset-2">
+                                    <h1>{{msg}}</h1>
+                                    <h2>Tell us about your dog!</h2>
+
+                                    {{!-- INDEX PAGE = CREATE NEW DOG PROFILE --}}
+
+                                    <form class="clearfix mb-4" action="POST">
+                                        <div class="form-group">
+                                            <label for="dog-name">Your Dog</label>
+                                            <input type="text" id="dog-name" class="form-control"
+                                                aria-describedby="dog-name" placeholder="Enter Dog Name">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dog-birthdate">Dog Birthdate</label>
+                                            <textarea class="form-control" id="dog-birthdate"
+                                                aria-describedby="dog-birthdate"
+                                                placeholder="Enter Dog Birthdate"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dog-sex">Dog Sex</label>
+                                            <textarea class="form-control" id="dog-sex" aria-describedby="dog-sex"
+                                                placeholder="Enter Dog Sex"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dog-breed">Dog Breed</label>
+                                            <textarea class="form-control" id="dog-breed" aria-describedby="dog-breed"
+                                                placeholder="Enter Dog Breed"></textarea>
+                                        </div>
+                                        <button id="submit-dog" class="btn btn-primary float-right">Submit</button>
+                                    </form>
+                                    <h3>Dogs:</h3>
+                                    <ul id="dog-list" class="list-group">
+                                        {{#each dogs}}
+                                        <li data-id="{{this.id}}" class="list-group-item">
+                                            <a href="dog/{{this.id}}">{{this.dogName}}</a>
+                                        </li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-sm bones-container">
-                    {{!-- BUTTON: New Pet Profile --}}
-                    <INPUT type="submit" id="button_addnewpet" value="Add New Pet Profile"></button>
+                {{!-- end new-profile modal --}}
 
-                    {{!-- BUTTON: horoscope--}}
-                    <INPUT type="submit" id="button_horoscope" value="View Pet Horoscope"></button>
 
-                    {{!-- BUTTON: diary input form--}}
-                    <INPUT type="submit" id="button_diary" value="Add Diary Entry"></button>
+
+                <!-- Modal: display bone-buttons for "view diary" "new diary entry" -->
+                <div id="diaryModal" class="modal1">
+                    <!-- Modal content -->
+                    <div class="modal-diary">
+                        <span class="close1">&times;</span>
+                        <h5 align="center">Fido's Doggy Diary!</h5>
+                        <hr>
+                        <!--BUTTON: horoscope-->
+                        <INPUT type="submit" id="button_horoscope" value="View Diary"></button>
+
+                        <!--BUTTON: diary input form-->
+                        <INPUT type="submit" id="button_diary" value="Add New Entry"></button>
+                    </div>
                 </div>
-                <div class="col-sm paw-container">
-                    <INPUT type="submit" id="button_dog" value={{dog.dogName}}></button>
-                </div>
+                {{!-- end Diary Modal --}}
+
+
+
             </div>
         </div>
-        {{!-- end icon-container --}}
     </div>
-    {{!-- end whole page container --}}
+    <!--end icon-container-->
+</div>
+<!-- end whole page container -->
 
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+{{!-- script for New Pet modal form --}}
+
+<script>
+    // Get the modal
+    var modal2 = document.getElementById("profileModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("button_addnewpet");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close2")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal2.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal2.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal2.style.display = "none";
+        }
+    }
+</script>
 
 
-</body>
+{{!-- script for diary modal --}}
+<script>
+    // Get the modal
+    var modal1 = document.getElementById("diaryModal");
 
-</html>
+    // Get the button that opens the modal
+    var btn = document.getElementById("button_dog");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close1")[0];
+
+    // When the user clicks the button, open the modal 
+    btn.onclick = function () {
+        modal1.style.display = "block";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal1.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal1.style.display = "none";
+        }
+    }
+</script>
+
+
+
+
+
+
+{{!-- general bootstrap scripts --}}
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+{{!-- script for new-profile modal --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
