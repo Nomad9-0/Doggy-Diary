@@ -3,8 +3,10 @@
   <!-- Header -->
   <div class="row" id="dog-info">
     <div class="col jumbotron header">
-      <h1 id="dog-name">{{example.id}}</h1>
-      <p id="dog-horoscope">Dog Horoscope</p>
+        <p><strong>ID</strong>: {{dog.id}}</p>
+      <h1 id="dog-name">{{dog.dogName}}</h1>
+      <p id="dog-birthday">{{dog.birthdate}}</p>
+      <p id="dog-sex">{{dog.sex}}</p>
     </div>
   </div>
 
@@ -12,7 +14,7 @@
   <div class="row" id="behavior-chart">
       <div class="col card mb-4">
           <h1 class="card-header">Behavior Tracker</h1>
-          <p id="chart card-body">Dog Chart Here</p>
+          <canvas id="myChart" width="400" height="200"></canvas>
       </div>
   </div>
 
@@ -28,7 +30,7 @@
   <div class="row" id="dog-facts">
       <div class="col card mb-4">
           <h1 class="card-header">Breed Characteristics</h1>
-          <p id="breed-char card-body">Breed fun facts {{example.facts}}</p>
+          <p id="breed-char card-body">Breed fun facts {{dog.breed}}</p>
       </div>
       <div class="col card mb-4">
           <h1 class="card-header">Breed Health Issues</h1>
@@ -38,3 +40,5 @@
   </div>
    
 </div>
+
+<script src="/js/index.js"></script>

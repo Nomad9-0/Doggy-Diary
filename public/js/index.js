@@ -218,3 +218,57 @@ $submitDog.on("click", dogFormSubmit);
 $submitDiary.on("click", diaryFormSubmit);
 $dogList.on("click", ".delete", dogDeleteBtnClick);
 $diaryList.on("click", ".delete", diaryDeleteBtnClick);
+
+// Chart
+var myChart = document.getElementById("myChart").getContext("2d");
+
+Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontsize = 18;
+Chart.defaults.global.defaultFontColor = "#777";
+
+var lineChart = new Chart(myChart, {
+  type: "line",
+  data: {
+    labels: [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+      "Sunday"
+    ],
+    datasets: [
+      {
+        label: "Behavior",
+        // Happiness = 4, Energy = 3, Appetite = 2, Affection = 1
+        data: [4, 1, 2, 4, 3, 1, 3],
+        borderColor: "green",
+        borderWidth: 1,
+        hoverBorderWidth: 3,
+        hoverBorderColor: "#000"
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "dogName Week Behavior",
+      fontSize: 25
+    },
+    legend: {
+      position: "right",
+      labels: {
+        fontColor: "#000"
+      }
+    },
+    layout: {
+      padding: {
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0
+      }
+    }
+  }
+});
