@@ -1,4 +1,4 @@
-var $dogName =$("#dog-name");
+var $dogName = $("#dog-name");
 
 var API = {
   saveDog: function(dog) {
@@ -50,7 +50,7 @@ var API = {
 function dogTip(dog) {
   API.getDiaries(dog).then(function(data) {
     var $diary = data.map(function(diary) {
-      console.log(diary.$dogName);
+      console.log(diary);
     });
     return $diary;
   });
@@ -60,3 +60,5 @@ function selectDog() {
   var dog = $dogName.val();
   dogTip(dog);
 }
+
+$("#select-dog").on("click", selectDog);

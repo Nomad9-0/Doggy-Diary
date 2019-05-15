@@ -19,6 +19,16 @@ module.exports = function(app) {
     });
   });
 
+  /* app.get("/diary/:input", function(req, res) {
+    db.Diary.findAll({ where: { dogName: req.params.input } }).then(function(
+      dbDiaries
+    ) {
+      res.render("choose", {
+        diaries: dbDiaries
+      });
+    });
+  });
+ */
   // Load dog page and pass in an dog by id
   app.get("/dog/:id", function(req, res) {
     db.Dog.findOne({ where: { id: req.params.id } }).then(function(dbDog) {
@@ -28,13 +38,13 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/diary/:id", function(req, res) {
+  /*  app.get("/diary/:id", function(req, res) {
     db.Diary.findOne({ where: { id: req.params.id } }).then(function(dbDiary) {
       res.render("", {
         diary: dbDiary
       });
     });
-  });
+  }); */
 
   // Render 404 page for any unmatched routes
   app.get("*", function(req, res) {
