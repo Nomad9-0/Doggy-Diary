@@ -1,5 +1,3 @@
-var $dogName = $("#dog-name");
-
 var API = {
   saveDog: function(dog) {
     return $.ajax({
@@ -33,9 +31,9 @@ var API = {
       data: JSON.stringify(diary)
     });
   },
-  getDiaries: function(dog) {
+  getDiaries: function() {
     return $.ajax({
-      url: "api/diaries" + dog,
+      url: "api/diaries",
       type: "GET"
     });
   },
@@ -47,18 +45,17 @@ var API = {
   }
 };
 
-function dogTip(dog) {
-  API.getDiaries(dog).then(function(data) {
-    var $diary = data.map(function(diary) {
-      console.log(diary);
+var dogName = "Rex";
+function dogDiary() {
+  API.getDiaries().then(function(data) {
+    data.map(function(diary) {
+      for (var i = 0; i < diary.length; i++) {
+        if (diary.dogName === dogName) {
+          console.log(diary.message);
+        }
+      }
     });
-    return $diary;
   });
 }
 
-function selectDog() {
-  var dog = $dogName.val();
-  dogTip(dog);
-}
-
-$("#select-dog").on("click", selectDog);
+dogDiary();
