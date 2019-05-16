@@ -4,7 +4,7 @@ module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
     db.Dog.findAll({}).then(function(dbDogs) {
-      res.render("index", {
+      res.render("home", {
         dogs: dbDogs
       });
     });
