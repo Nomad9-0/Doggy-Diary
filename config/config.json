@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "pw",
     "database": "dog_tracker",
     "host": "localhost",
     "dialect": "mysql"
