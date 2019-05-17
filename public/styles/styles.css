@@ -1,7 +1,7 @@
 .list-group-item {
   line-height: 2.5;
 }        body {
-  background-image: url("public/images/background_rainbow_bones.jpg");
+  background-image: url("images/background_rainbow_bones.jpg");
   background-color: aqua;
   background-repeat: no-repeat;
   background-size: cover;
@@ -41,7 +41,7 @@
 }
 
 #button_addnewpet {
-  background-image: url("public/images/bone_maroon.png");
+  background-image: url("images/bone_maroon.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -59,7 +59,7 @@
 }
 
 #button_horoscope {
-  background-image: url("public/images/bone_blue.png");
+  background-image: url("images/bone_blue.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -76,7 +76,7 @@
 }
 
 #button_diary {
-  background-image: url("public/images/bone_pink.png");
+  background-image: url("images/bone_pink.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
@@ -93,7 +93,7 @@
 }
 
 #button_dog {
-  background-image: url("public/images/paw_blue.png");
+  background-image: url("images/paw_blue.png");
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
