@@ -45,17 +45,30 @@ var API = {
   }
 };
 
-var dogName = "Rex";
-function dogDiary() {
+var dogChoice = "Slippy";
+function dogDiary(dog) {
   API.getDiaries().then(function(data) {
+    var allTotalStats = [];
+    var dogName = dog.toLowerCase();
     data.map(function(diary) {
-      for (var i = 0; i < diary.length; i++) {
-        if (diary.dogName === dogName) {
-          console.log(diary.message);
-        }
+      var dogDataName = diary.dogName.toLowerCase();
+      console.log(diary);
+      if (dogDataName === dogName) {
+        var totalStats =
+          diary.happiness + diary.energy + diary.appetite + diary.affection;
+        allTotalStats.push(totalStats);
       }
     });
+    console.log(allTotalStats);
   });
 }
 
-dogDiary();
+/* function checkStats (stats) {
+  if (stats.length > 1) {
+    for (var i = 0; i < stats.length; i++) {
+
+    }
+  }
+}
+ */
+dogDiary(dogChoice);
