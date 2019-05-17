@@ -1,6 +1,8 @@
 .list-group-item {
   line-height: 2.5;
-}        body {
+}        
+
+body {
   background-image: url("images/background_rainbow_bones.jpg");
   background-color: aqua;
   background-repeat: no-repeat;
