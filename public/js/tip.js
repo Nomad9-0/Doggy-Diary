@@ -45,31 +45,30 @@ var API = {
   }
 };
 
-var dogName = "Slippy";
-function dogDiary() {
+var dogChoice = "Slippy";
+function dogDiary(dog) {
   API.getDiaries().then(function(data) {
+    var allTotalStats = [];
+    var dogName = dog.toLowerCase();
     data.map(function(diary) {
-      var dog = dogName.toLocaleLowerCase();
-      var dogDataName = diary.dogName.toLocaleLowerCase();
+      var dogDataName = diary.dogName.toLowerCase();
       console.log(diary);
-      if (dogDataName === dog) {
+      if (dogDataName === dogName) {
         var totalStats =
           diary.happiness + diary.energy + diary.appetite + diary.affection;
-        console.log(totalStats);
-        if (totalStats > 15) {
-          console.log("Happy Puppy");
-        } else if (totalStats < 15 && totalStats > 8) {
-          console.log("Needs attention");
-        } else {
-          console.log("Uh oh!");
-        }
+        allTotalStats.push(totalStats);
       }
     });
+    console.log(allTotalStats);
   });
 }
 
-function averageAll(diary) {
+/* function checkStats (stats) {
+  if (stats.length > 1) {
+    for (var i = 0; i < stats.length; i++) {
 
+    }
+  }
 }
-
-dogDiary();
+ */
+dogDiary(dogChoice);
