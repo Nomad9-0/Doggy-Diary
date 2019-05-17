@@ -13,7 +13,10 @@ var $dogMessage = $("#dog-message");
 var $submitDog = $("#submit-dog");
 var $submitDiary = $("#submit-diary");
 var $dogList = $("#dog-list");
-var $diaryList = $("#diary-list");
+// var $diaryList = $("#diary-list");
+
+var currentDog = $(".dog-name").text();
+console.log(currentDog);
 
 //Showing the server where to look for images
 // app.use(express.static("public"));
@@ -42,7 +45,7 @@ var API = {
       type: "DELETE"
     });
   },
-  saveDiary: function (diary) {
+  saveDiary: function(diary) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -135,7 +138,7 @@ var dogDeleteBtnClick = function () {
   });
 };
 
-var refreshDiaries = function () {
+/* var refreshDiaries = function () {
   API.getDiaries().then(function (data) {
     var $diaries = data.map(function (diary) {
       var $a = $("<a>")
@@ -162,14 +165,14 @@ var refreshDiaries = function () {
     $diaryList.append($diaries);
   });
 };
-
+ */
 // handleFormSubmit is called whenever we submit a new dog
 // Save the new dog to the db and refresh the list
 var diaryFormSubmit = function (event) {
   event.preventDefault();
-
+  
   var diary = {
-    dogName: $dogName.val().trim(),
+    dogName: currentDog,
     happiness: $dogHappiness.val().trim(),
     energy: $dogEnergy.val().trim(),
     appetite: $dogAppetite.val().trim(),
@@ -179,28 +182,20 @@ var diaryFormSubmit = function (event) {
 
   console.log(diary);
 
-  if (
-    !(
-      diary.happiness &&
-      diary.energy &&
-      diary.appetite &&
-      diary.affection
-    )
-  ) {
+  if (!(diary.happiness && diary.energy && diary.appetite && diary.affection)) {
     alert("Please enter all value fields!");
     return;
   }
 
-  API.saveDiary(diary).then(function () {
-    refreshDiaries();
+  API.saveDiary(diary).then(function() {
+    // refreshDiaries();
+    // $dogName.val("");
+    $dogHappiness.val("");
+    $dogEnergy.val("");
+    $dogAppetite.val("");
+    $dogAffection.val("");
+    $dogMessage.val("");
   });
-
-  $dogName.val("");
-  $dogHappiness.val("");
-  $dogEnergy.val("");
-  $dogAppetite.val("");
-  $dogAffection.val("");
-  $dogMessage.val("");
 };
 
 // handleDeleteBtnClick is called when an dog's delete button is clicked
@@ -219,7 +214,7 @@ var diaryDeleteBtnClick = function () {
 $submitDog.on("click", dogFormSubmit);
 $submitDiary.on("click", diaryFormSubmit);
 $dogList.on("click", ".delete", dogDeleteBtnClick);
-$diaryList.on("click", ".delete", diaryDeleteBtnClick);
+// $diaryList.on("click", ".delete", diaryDeleteBtnClick);
 
 // Chart
 //var diary= require('../../models/diary');
