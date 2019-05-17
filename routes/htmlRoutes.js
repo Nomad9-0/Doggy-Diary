@@ -10,14 +10,14 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/diary", function(req, res) {
+  /*  app.get("/diary", function(req, res) {
     db.Diary.findAll({}).then(function(dbDiaries) {
       res.render("diary", {
         diaries: dbDiaries
       });
     });
   });
-
+ */
   /* app.get("/diary/:input", function(req, res) {
     db.Diary.findAll({ where: { dogName: req.params.input } }).then(function(
       dbDiaries
