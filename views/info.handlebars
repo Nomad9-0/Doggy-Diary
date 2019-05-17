@@ -3,10 +3,45 @@
   <!-- Header -->
   <div class="row" id="dog-info">
     <div class="col jumbotron header">
-        <p><strong>ID</strong>: {{dog.id}}</p>
+        {{!-- <p><strong>ID</strong>: {{dog.id}}</p> --}}
       <h1 id="dog-name">{{dog.dogName}}</h1>
       <p id="dog-birthday">{{dog.birthdate}}</p>
       <p id="dog-sex">{{dog.sex}}</p>
+      <!-- Modal: display bone-buttons for "view diary" "new diary entry" --> 
+      <h5 class="text-center">{{dog.dogName}}'s Doggy Diary!</h5> 
+      <hr> 
+      <!--BUTTON: diary input form--> 
+      <button class="text-center btn btn-primary" type="submit" id="btnDiary" value="Add New Entry">Add New Entry</button> 
+      <button class="text-center btn btn-primary" type="submit" id="btnHome" value="Add New Entry">Home</button> 
+      {{!-- end Diary Modal --}}
+
+        <div id="homeD">
+            <b>Give me info about your dog today!</b>
+            <form class="clearfix mb-4" action="POST">
+
+                <div class="form-group">
+                <label for="dog-happiness">From 1 - 10, how happy was your dog today?</label>
+                <input type="number" id="dog-happiness" class="form-control" aria-describedby="dog-happiness">
+                </div>
+
+                <div class="form-group">
+                <label for="dog-energy">From 1 - 10, how energetic was your dog today?</label>
+                <input type="number" id="dog-energy" class="form-control" aria-describedby="dog-energy">
+                </div>
+
+                <div class="form-group">
+                <label for="dog-appetite">From 1 - 10, how's your dog's appetite today?</label>
+                <input type="number" id="dog-appetite" class="form-control" aria-describedby="dog-appetite">
+                </div>
+
+                <div class="form-group">
+                <label for="dog-affection">From 1 - 10, how affectionate was your dog today?</label>
+                <input type="number" id="dog-affection" class="form-control" aria-describedby="dog-affection">
+                </div>
+
+                <button id="submit-diary" class="btn btn-primary float-right">Submit</button>
+            </form>
+        </div>
     </div>
   </div>
 
@@ -15,6 +50,7 @@
       <div class="col card mb-4">
           <h1 class="card-header">Behavior Tracker</h1>
           <canvas id="myChart" width="400" height="200"></canvas>
+          <p id='messageDisplay'></p>
       </div>
   </div>
 
@@ -45,7 +81,7 @@
       <div class="col card mb-4">
           <h1 class="card-header">Breed Health Issues</h1>
           <p id="breed-health card-body">Health info {{example.health}}</p>
-          <a href="#">links for more info on health issues</a>
+          <a href="https://www.akc.org/dog-breeds/?letter=L">links for more info on health issues</a>
       </div>
   </div>
    
