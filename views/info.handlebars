@@ -4,7 +4,7 @@
   <div class="row" id="dog-info">
     <div class="col jumbotron header bg-light">
         {{!-- <p><strong>ID</strong>: {{dog.id}}</p> --}}
-      <h1 id="dog-name">{{dog.dogName}}</h1>
+      <h1 id="dog-name" class="dog-name">{{dog.dogName}}</h1>
       <p id="dog-birthday"><b>Birthday:</b> {{dog.birthdate}}</p>
       <p id="dog-sex">{{dog.sex}}</p>
       <!-- Modal: display bone-buttons for "view diary" "new diary entry" --> 
@@ -37,6 +37,11 @@
                 <div class="form-group">
                 <label for="dog-affection">From 1 - 10, how affectionate was your dog today?</label>
                 <input type="number" id="dog-affection" class="form-control" aria-describedby="dog-affection">
+                </div>
+               
+                <div class="form-group">
+                <label for="dog-message">In your own words, how is your dog today?</label>
+                <textarea id="dog-message" class="form-control" aria-describedby="dog-message"></textarea>
                 </div>
 
                 <button id="submit-diary" class="btn btn-primary float-right">Submit</button>
