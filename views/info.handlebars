@@ -2,10 +2,10 @@
 <div class="container text-center main">
   <!-- Header -->
   <div class="row" id="dog-info">
-    <div class="col jumbotron header">
+    <div class="col jumbotron header bg-light">
         {{!-- <p><strong>ID</strong>: {{dog.id}}</p> --}}
       <h1 id="dog-name">{{dog.dogName}}</h1>
-      <p id="dog-birthday">{{dog.birthdate}}</p>
+      <p id="dog-birthday"><b>Birthday:</b> {{dog.birthdate}}</p>
       <p id="dog-sex">{{dog.sex}}</p>
       <!-- Modal: display bone-buttons for "view diary" "new diary entry" --> 
       <h5 class="text-center">{{dog.dogName}}'s Doggy Diary!</h5> 
@@ -48,7 +48,7 @@
   <!-- Chart -->
   <div class="row" id="behavior-chart">
       <div class="col card mb-4">
-          <h1 class="card-header">Behavior Tracker</h1>
+          <h1 class="card-header">{{dog.dogName}}'s Behavior Tracker</h1>
           <canvas id="myChart" width="400" height="200"></canvas>
           <p id='messageDisplay'></p>
       </div>
@@ -79,7 +79,7 @@
       </div>
 
       <div class="col card mb-4">
-          <h1 class="card-header">Breed Health Issues</h1>
+          <h1 class="card-header">Breed Health</h1>
           <p id="breed-health card-body">Health info {{example.health}}</p>
           <a href="https://www.akc.org/dog-breeds/?letter=L">links for more info on health issues</a>
       </div>
