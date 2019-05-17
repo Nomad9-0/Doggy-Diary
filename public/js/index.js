@@ -51,7 +51,7 @@ var API = {
         "Content-Type": "application/json"
       },
       type: "POST",
-      url: "api/diaries",
+      url: "/api/diaries",
       data: JSON.stringify(diary)
     });
   },
@@ -200,7 +200,7 @@ var diaryFormSubmit = function (event) {
 
 // handleDeleteBtnClick is called when an dog's delete button is clicked
 // Remove the dog from the db and refresh the list
-var diaryDeleteBtnClick = function () {
+/* var diaryDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
@@ -209,7 +209,7 @@ var diaryDeleteBtnClick = function () {
     refreshDiaries();
   });
 };
-
+ */
 // Add event listeners to the submit and delete buttons
 $submitDog.on("click", dogFormSubmit);
 $submitDiary.on("click", diaryFormSubmit);
