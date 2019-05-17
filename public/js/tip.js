@@ -45,17 +45,31 @@ var API = {
   }
 };
 
-var dogName = "Rex";
+var dogName = "Slippy";
 function dogDiary() {
   API.getDiaries().then(function(data) {
     data.map(function(diary) {
-      for (var i = 0; i < diary.length; i++) {
-        if (diary.dogName === dogName) {
-          console.log(diary.message);
+      var dog = dogName.toLocaleLowerCase();
+      var dogDataName = diary.dogName.toLocaleLowerCase();
+      console.log(diary);
+      if (dogDataName === dog) {
+        var totalStats =
+          diary.happiness + diary.energy + diary.appetite + diary.affection;
+        console.log(totalStats);
+        if (totalStats > 15) {
+          console.log("Happy Puppy");
+        } else if (totalStats < 15 && totalStats > 8) {
+          console.log("Needs attention");
+        } else {
+          console.log("Uh oh!");
         }
       }
     });
   });
+}
+
+function averageAll(diary) {
+
 }
 
 dogDiary();
