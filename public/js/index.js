@@ -257,7 +257,6 @@ new Chart(myChart, {
   options: {
     title: {
       display: true,
-      text: "dogName Week Behavior",
       fontSize: 25
     },
     legend: {
