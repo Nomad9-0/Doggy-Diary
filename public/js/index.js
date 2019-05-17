@@ -15,9 +15,12 @@ var $submitDiary = $("#submit-diary");
 var $dogList = $("#dog-list");
 var $diaryList = $("#diary-list");
 
+//Showing the server where to look for images
+app.use(express.static('public'));
+
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveDog: function(dog) {
+  saveDog: function (dog) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -27,19 +30,19 @@ var API = {
       data: JSON.stringify(dog)
     });
   },
-  getDogs: function() {
+  getDogs: function () {
     return $.ajax({
       url: "api/dogs",
       type: "GET"
     });
   },
-  deleteDog: function(id) {
+  deleteDog: function (id) {
     return $.ajax({
       url: "api/dogs/" + id,
       type: "DELETE"
     });
   },
-  saveDiary: function(diary) {
+  saveDiary: function (diary) {
     return $.ajax({
       headers: {
         "Content-Type": "application/json"
@@ -49,13 +52,13 @@ var API = {
       data: JSON.stringify(diary)
     });
   },
-  getDiaries: function() {
+  getDiaries: function () {
     return $.ajax({
       url: "api/diaries",
       type: "GET"
     });
   },
-  deleteDiary: function(id) {
+  deleteDiary: function (id) {
     return $.ajax({
       url: "api/diaries/" + id,
       type: "DELETE"
@@ -65,9 +68,9 @@ var API = {
 
 // refreshDogs gets new dogs from the db and repopulates the list
 // COPY ALL THIS BELOW AND CHANGE IT FOR THE DIARY
-var refreshDogs = function() {
-  API.getDogs().then(function(data) {
-    var $dogs = data.map(function(dog) {
+var refreshDogs = function () {
+  API.getDogs().then(function (data) {
+    var $dogs = data.map(function (dog) {
       var $a = $("<a>")
         .text(dog.dogName)
         .attr("href", "/dog/" + dog.id);
@@ -95,7 +98,7 @@ var refreshDogs = function() {
 
 // handleFormSubmit is called whenever we submit a new dog
 // Save the new dog to the db and refresh the list
-var dogFormSubmit = function(event) {
+var dogFormSubmit = function (event) {
   event.preventDefault();
 
   var dog = {
@@ -110,7 +113,7 @@ var dogFormSubmit = function(event) {
     return;
   }
 
-  API.saveDog(dog).then(function() {
+  API.saveDog(dog).then(function () {
     refreshDogs();
   });
 
@@ -122,19 +125,19 @@ var dogFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an dog's delete button is clicked
 // Remove the dog from the db and refresh the list
-var dogDeleteBtnClick = function() {
+var dogDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteDog(idToDelete).then(function() {
+  API.deleteDog(idToDelete).then(function () {
     refreshDogs();
   });
 };
 
-var refreshDiaries = function() {
-  API.getDiaries().then(function(data) {
-    var $diaries = data.map(function(diary) {
+var refreshDiaries = function () {
+  API.getDiaries().then(function (data) {
+    var $diaries = data.map(function (diary) {
       var $a = $("<a>")
         .text(diary.dogName)
         .attr("href", "/diary/" + diary.id);
@@ -162,7 +165,7 @@ var refreshDiaries = function() {
 
 // handleFormSubmit is called whenever we submit a new dog
 // Save the new dog to the db and refresh the list
-var diaryFormSubmit = function(event) {
+var diaryFormSubmit = function (event) {
   event.preventDefault();
 
   var diary = {
@@ -188,7 +191,7 @@ var diaryFormSubmit = function(event) {
     return;
   }
 
-  API.saveDiary(diary).then(function() {
+  API.saveDiary(diary).then(function () {
     refreshDiaries();
   });
 
@@ -202,12 +205,12 @@ var diaryFormSubmit = function(event) {
 
 // handleDeleteBtnClick is called when an dog's delete button is clicked
 // Remove the dog from the db and refresh the list
-var diaryDeleteBtnClick = function() {
+var diaryDeleteBtnClick = function () {
   var idToDelete = $(this)
     .parent()
     .attr("data-id");
 
-  API.deleteDiary(idToDelete).then(function() {
+  API.deleteDiary(idToDelete).then(function () {
     refreshDiaries();
   });
 };
@@ -276,21 +279,21 @@ new Chart(myChart, {
 
 // Breed Data
 var $breed_select = $('select.breed_select');
-$breed_select.change(function() {
+$breed_select.change(function () {
   var id = $(this).children(":selected").attr("id");
   getDogByBreed(id)
 });
 // Load all the Breeds
 function getBreeds() {
-  ajax_get('https://api.thedogapi.com/v1/breeds', function(data) {
+  ajax_get('https://api.thedogapi.com/v1/breeds', function (data) {
     populateBreedsSelect(data)
   });
 }
 // Put the breeds in the Select control
 function populateBreedsSelect(breeds) {
-  $breed_select.empty().append(function() {
+  $breed_select.empty().append(function () {
     var output = '';
-    $.each(breeds, function(key, value) {
+    $.each(breeds, function (key, value) {
       output += '<option id="' + value.id + '">' + value.name + '</option>';
     });
     return output;
@@ -299,7 +302,7 @@ function populateBreedsSelect(breeds) {
 // triggered when the breed select control changes
 function getDogByBreed(breed_id) {
   // search for images that contain the breed (breed_id=) and attach the breed object (include_breed=1)
-  ajax_get('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breed_id, function(data) {
+  ajax_get('https://api.thedogapi.com/v1/images/search?include_breed=1&breed_id=' + breed_id, function (data) {
 
     if (data.length == 0) {
       // if there are no images returned
@@ -322,7 +325,7 @@ function displayBreed(image) {
   $("#breed_data_table tr").remove();
 
   var breed_data = image.breeds[0]
-  $.each(breed_data, function(key, value) {
+  $.each(breed_data, function (key, value) {
     // as 'weight' and 'height' are objects that contain 'metric' and 'imperial' properties, just use the metric string
     if (key == 'weight' || key == 'height') value = value.metric
     // add a row to the table
@@ -333,7 +336,7 @@ function displayBreed(image) {
 // make an Ajax request
 function ajax_get(url, callback) {
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.onreadystatechange = function() {
+  xmlhttp.onreadystatechange = function () {
     if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
       console.log('responseText:' + xmlhttp.responseText);
       try {
