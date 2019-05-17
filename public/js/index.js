@@ -181,7 +181,6 @@ var diaryFormSubmit = function (event) {
 
   if (
     !(
-      diary.dogName &&
       diary.happiness &&
       diary.energy &&
       diary.appetite &&
@@ -223,6 +222,7 @@ $dogList.on("click", ".delete", dogDeleteBtnClick);
 $diaryList.on("click", ".delete", diaryDeleteBtnClick);
 
 // Chart
+//var diary= require('../../models/diary');
 var myChart = document.getElementById("myChart").getContext("2d");
 
 Chart.defaults.global.defaultFontFamily = "Lato";
@@ -245,7 +245,8 @@ new Chart(myChart, {
       {
         label: "Behavior",
         // Happiness = 4, Energy = 3, Appetite = 2, Affection = 1
-        data: [4, 3, 2, 4, 3, 1, 3],
+        // will take average and post avg for the day.
+        data: [10, 6, 9, 7, 5, 8, 3],
         borderColor: "blue",
         borderWidth: 1,
         hoverBorderWidth: 3,
@@ -353,3 +354,15 @@ function ajax_get(url, callback) {
 }
 // call the getBreeds function which will load all the Dog breeds into the select control
 getBreeds();
+
+// Diary
+$("#homeD").hide();
+$('#btnDiary').on('click', function(event) {
+  event.preventDefault();
+  $('#homeD').toggle();
+});
+
+$('#btnHome').on('click', function(event) {
+  event.preventDefault();
+  location.href = "/";
+});
