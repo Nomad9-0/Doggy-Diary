@@ -10,9 +10,9 @@ module.exports = function(app) {
     });
   });
 
-  /*  app.get("/diary", function(req, res) {
+  app.get("/diary", function(req, res) {
     db.Diary.findAll({}).then(function(dbDiaries) {
-      res.render("info", {
+      res.render("diary", {
         diaries: dbDiaries
       });
     });
@@ -38,9 +38,8 @@ module.exports = function(app) {
   });
 
   app.get("/info", function(req, res) {
-    res.render("info")
+    res.render("info");
   });
-
 
   /*  app.get("/diary/:id", function(req, res) {
     db.Diary.findOne({ where: { id: req.params.id } }).then(function(dbDiary) {
