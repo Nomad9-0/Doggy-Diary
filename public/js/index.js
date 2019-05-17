@@ -16,7 +16,7 @@ var $dogList = $("#dog-list");
 var $diaryList = $("#diary-list");
 
 //Showing the server where to look for images
-app.use(express.static('public/images'));
+app.use(express.static('public'));
 
 // The API object contains methods for each kind of request we'll make
 var API = {
