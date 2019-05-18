@@ -1,16 +1,16 @@
 {
   "development": {
-    "username": "root",
-    "password": "root1234",
-    "database": "dog_tracker",
-    "host": "localhost",
+    "username": "cn3e7dt7eoen9524",
+    "password": "y5j2lfdiqdqt6fye",
+    "database": "mazfddjc73c29wwc",
+    "host": "g9fej9rujq0yt0cd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
-    "username": "root",
-    "password": null,
-    "database": "testdb",
-    "host": "localhost",
+    "username": "cn3e7dt7eoen9524",
+    "password": "y5j2lfdiqdqt6fye",
+    "database": "mazfddjc73c29wwc",
+    "host": "g9fej9rujq0yt0cd.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql",
     "logging": false
   },
